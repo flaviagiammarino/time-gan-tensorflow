@@ -1,0 +1,4 @@
+numpy==1.23.5
+tensorflow==2.11.0
+plotly==5.11.0
+kaleido==0.2.1
