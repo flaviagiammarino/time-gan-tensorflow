@@ -39,4 +39,4 @@ x_sim = model.simulate(samples=len(x_test))
 
 # Plot the actual, reconstructed and synthetic data
 fig = plot(actual=x_test, reconstructed=x_hat, synthetic=x_sim)
-fig.write_image('results.png', scale=4, height=800, width=700)
+fig.write_image('results.png', scale=4, height=900, width=700)

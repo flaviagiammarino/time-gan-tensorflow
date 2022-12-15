@@ -17,7 +17,7 @@ def plot(actual, reconstructed, synthetic):
     fig.update_layout(
         plot_bgcolor='white',
         paper_bgcolor='white',
-        margin=dict(t=40, b=10, l=10, r=10),
+        margin=dict(t=60, b=60, l=30, r=30),
         font=dict(
             color='#1b1f24',
             size=8,
@@ -28,6 +28,9 @@ def plot(actual, reconstructed, synthetic):
                 color='#1b1f24',
                 size=10,
             ),
+            x=0,
+            y=-0.1,
+            orientation='h'
         ),
     )
     
@@ -57,7 +60,7 @@ def plot(actual, reconstructed, synthetic):
     fig.add_trace(
         go.Scatter(
             y=np.mean(actual, axis=1),
-            name='Average',
+            name='Actual Avg.',
             showlegend=True,
             mode='lines',
             line=dict(
@@ -89,12 +92,14 @@ def plot(actual, reconstructed, synthetic):
     fig.add_trace(
         go.Scatter(
             y=np.mean(reconstructed, axis=1),
-            showlegend=False,
+            name='Reconstructed Avg.',
+            showlegend=True,
             mode='lines',
             line=dict(
                 color='#0969da',
                 width=1,
                 shape='spline',
+                dash='dash',
             )
         ),
         row=2,
@@ -120,12 +125,14 @@ def plot(actual, reconstructed, synthetic):
     fig.add_trace(
         go.Scatter(
             y=np.mean(synthetic, axis=1),
-            showlegend=False,
+            name='Synthetic Avg.',
+            showlegend=True,
             mode='lines',
             line=dict(
                 color='#0969da',
                 width=1,
                 shape='spline',
+                dash='dot',
             )
         ),
         row=3,
