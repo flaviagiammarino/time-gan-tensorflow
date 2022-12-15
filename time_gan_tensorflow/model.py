@@ -16,7 +16,7 @@ class TimeGAN():
                  learning_rate,
                  batch_size):
         '''
-        Implementation of time series generation model introduced in Yoon, J., Jarrett, D. and Van der Schaar, M., 2019.
+        Implementation of synthetic time series generation model introduced in Yoon, J., Jarrett, D. and Van der Schaar, M., 2019.
         Time-series generative adversarial networks. Advances in neural information processing systems, 32.
         '''
         
@@ -168,7 +168,7 @@ class TimeGAN():
    
         # transform the reconstructed time series back to the original scale
         x_hat = self.mu + self.sigma * x_hat
- 
+        
         return x_hat
     
     def simulate(self, samples):
@@ -178,7 +178,7 @@ class TimeGAN():
         
         # generate the synthetic sequences
         z = simulator(samples=samples // self.timesteps, timesteps=self.timesteps, features=self.features)
-    
+        
         # get the simulated sequences
         x_sim = self.autoencoder_model.get_layer('decoder')(self.generator_model(z))
     

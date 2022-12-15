@@ -2,13 +2,13 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def plot(actual, reconstructed, simulated):
+def plot(actual, reconstructed, synthetic):
     '''
-    Plot the actual, reconstructed and simulated time series.
+    Plot the actual, reconstructed and synthetic time series.
     '''
     
     fig = make_subplots(
-        subplot_titles=['Actual', 'Reconstructed', 'Simulated'],
+        subplot_titles=['Actual', 'Reconstructed', 'Synthetic'],
         vertical_spacing=0.15,
         rows=3,
         cols=1
@@ -19,14 +19,12 @@ def plot(actual, reconstructed, simulated):
         paper_bgcolor='white',
         margin=dict(t=40, b=10, l=10, r=10),
         font=dict(
-            family='Arial',
             color='#1b1f24',
             size=8,
         ),
         legend=dict(
             traceorder='normal',
             font=dict(
-                family='Arial',
                 color='#1b1f24',
                 size=10,
             ),
@@ -35,7 +33,6 @@ def plot(actual, reconstructed, simulated):
     
     fig.update_annotations(
         font=dict(
-            family='Arial',
             color='#1b1f24',
             size=12,
         )
@@ -66,6 +63,7 @@ def plot(actual, reconstructed, simulated):
             line=dict(
                 color='#0969da',
                 width=1,
+                shape='spline',
             )
         ),
         row=1,
@@ -96,17 +94,18 @@ def plot(actual, reconstructed, simulated):
             line=dict(
                 color='#0969da',
                 width=1,
+                shape='spline',
             )
         ),
         row=2,
         col=1
     )
     
-    # plot the simulated time series
-    for i in range(simulated.shape[1]):
+    # plot the synthetic time series
+    for i in range(synthetic.shape[1]):
         fig.add_trace(
             go.Scatter(
-                y=simulated[:, i],
+                y=synthetic[:, i],
                 showlegend=False,
                 mode='lines',
                 line=dict(
@@ -120,12 +119,13 @@ def plot(actual, reconstructed, simulated):
         
     fig.add_trace(
         go.Scatter(
-            y=np.mean(simulated, axis=1),
+            y=np.mean(synthetic, axis=1),
             showlegend=False,
             mode='lines',
             line=dict(
                 color='#0969da',
                 width=1,
+                shape='spline',
             )
         ),
         row=3,
@@ -137,7 +137,6 @@ def plot(actual, reconstructed, simulated):
             title='Time',
             color='#424a53',
             tickfont=dict(
-                family='Arial',
                 color='#6e7781',
                 size=6,
             ),
@@ -149,10 +148,10 @@ def plot(actual, reconstructed, simulated):
         )
         
         fig.update_yaxes(
+            range=[0.9 * np.min(actual), 1.1 * np.max(actual)],
             title='Value',
             color='#424a53',
             tickfont=dict(
-                family='Arial',
                 color='#6e7781',
                 size=6,
             ),

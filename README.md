@@ -20,12 +20,12 @@ from time_gan_tensorflow.model import TimeGAN
 from time_gan_tensorflow.plots import plot
 
 # Generate the data
-N = 100     # Number of time series
+N = 50      # Number of time series
 L = 1000    # Length of each time series
 t = np.linspace(0, 1, L).reshape(-1, 1)
 c = np.cos(2 * np.pi * (50 * t - 0.5))
 s = np.sin(2 * np.pi * (100 * t - 0.5))
-x = 10 + 10 * c + 10 * s + 5 * np.random.normal(size=(L, N))
+x = 5 + 10 * c + 10 * s + 5 * np.random.normal(size=(L, N))
 
 # Split the data
 x_train, x_test = x[:int(0.8 * L)], x[int(0.8 * L):]
@@ -39,7 +39,7 @@ model = TimeGAN(
     lambda_param=0.1,
     eta_param=10,
     learning_rate=0.001,
-    batch_size=32
+    batch_size=16
 )
 
 model.fit(
@@ -54,7 +54,7 @@ x_hat = model.reconstruct(x=x_test)
 x_sim = model.simulate(samples=len(x_test))
 
 # Plot the actual, reconstructed and synthetic data
-fig = plot(actual=x_test, reconstructed=x_hat, simulated=x_sim)
+fig = plot(actual=x_test, reconstructed=x_hat, synthetic=x_sim)
 fig.write_image('results.png', scale=4, height=800, width=700)
 ```
 ![results](example/results.png)
