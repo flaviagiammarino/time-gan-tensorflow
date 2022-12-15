@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/flaviagiammarino/time-gan-tensorflow)
 ![languages](https://img.shields.io/github/languages/top/flaviagiammarino/time-gan-tensorflow)
 
-TensorFlow implementation of time series generation model introduced in Yoon, J., Jarrett, D. and Van der Schaar, M., 2019. Time-series generative adversarial networks. Advances in neural information processing systems, 32.
+TensorFlow implementation of synthetic time series generation model introduced in Yoon, J., Jarrett, D. and Van der Schaar, M., 2019. Time-series generative adversarial networks. *Advances in neural information processing systems*, 32.
 
 ## Dependencies
 ```bash
