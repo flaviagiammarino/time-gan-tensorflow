@@ -4,8 +4,8 @@ from time_gan_tensorflow.model import TimeGAN
 from time_gan_tensorflow.plots import plot
 
 # Generate the data
-N = 50      # Number of time series
-L = 1000    # Length of each time series
+N = 50      # number of time series
+L = 1000    # length of each time series
 t = np.linspace(0, 1, L).reshape(-1, 1)
 c = np.cos(2 * np.pi * (50 * t - 0.5))
 s = np.sin(2 * np.pi * (100 * t - 0.5))
