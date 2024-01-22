@@ -8,7 +8,7 @@
 TensorFlow implementation of synthetic time series generation model introduced in Yoon, J., Jarrett, D. and Van der Schaar, M., 2019. 
 Time-series generative adversarial networks. *Advances in neural information processing systems*, 32.
 
-<img src=diagram.png style="width:40%;margin-top:30px;margin-bottom:30px"/>
+<img src=diagram.png style="width:60%;margin-top:30px;margin-bottom:30px"/>
 
 *Model architecture (source: [NEURIPS2019](https://papers.nips.cc/paper_files/paper/2019/file/c9efe5f26cd17ba6216bbe2a7d26d490-Paper.pdf))*
 
